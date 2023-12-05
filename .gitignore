@@ -1,0 +1,10 @@
+# https://stackoverflow.com/a/987162/10974490
+# ignore everything
+*
+
+# But not these files...
+!.gitignore
+!*.dart
+
+# ...even if they are in subdirectories
+!*/
