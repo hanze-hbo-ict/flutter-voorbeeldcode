@@ -69,12 +69,3 @@ class CircularSplashScreen extends StatelessWidget {
         ]))));
   }
 }
-
-                  /*
-          ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(50.0)),
-              child: Image.network('https://bioinf.nl/~bbarnard/kip.png'))
-        ])));
-  }
-}
-*/
