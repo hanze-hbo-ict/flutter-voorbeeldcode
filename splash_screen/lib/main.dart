@@ -58,7 +58,7 @@ class CircularSplashScreen extends StatelessWidget {
                     image: NetworkImage('https://bioinf.nl/~bbarnard/kip.png'),
                     fit: BoxFit.cover,
                   ),
-                  borderRadius: const BorderRadius.all(Radius.circular(150.0)),
+                  borderRadius: const BorderRadius.all(Radius.circular(80.0)),
                   border: Border.all(
                     color: Colors.green,
                     width: 4.0,

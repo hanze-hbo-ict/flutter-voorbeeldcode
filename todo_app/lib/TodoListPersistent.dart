@@ -1,5 +1,14 @@
 // ignore_for_file: library_private_types_in_public_api
 
+/*
+In dit voorbeeld gebruik ik de database-engine drift: zie https://pub.dev/packages/drift,
+https://drift.simonbinder.eu/docs/upgrading/#name en https://drift.simonbinder.eu/docs/getting-started/.
+Ik had zelf wat moeite met de dependencies omdat er een nieuwe versie van dart is uitgekomen;
+de dependencies die je nu vindt in pubspec.yaml werken in ieder geval op mijn machine. 
+
+Een goed en uitgebreid voorbeeld kun je vinden op https://fluttertalk.com/flutter-crud-tutorial-using-drift-package/
+*/
+
 import 'package:flutter/material.dart';
 import 'database.dart';
 
@@ -84,9 +93,6 @@ class _TodoListPersistentState extends State<TodoListPersistent> {
             return Column(
                 children: ListTile.divideTiles(color: Colors.green, tiles: foo)
                     .toList());
-            // return ListView(
-            //   children: data!.map((e) => Text(e.title)).toList(),
-            // );
           } else {
             return const Center(
               child: Text("No data available"),
