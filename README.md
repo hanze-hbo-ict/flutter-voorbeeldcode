@@ -13,7 +13,13 @@ flutter run
 
 De volgorde waarin de voorbeelden langskomen is als volgt:
 
+### Week 1
+
 1. splash_screen
 2. transition_app
 3. list_app
 4. todo_app
+
+### Week 2
+5. dismiss_app
+6. service_app
