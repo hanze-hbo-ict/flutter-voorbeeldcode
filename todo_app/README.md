@@ -1,16 +1,40 @@
-# todo_app
+# Voorbeeld van lijsten met een database
 
-A new Flutter project.
+In dit voorbeeld gebruik ik de database-engine drift: zie [de documentatie online](https://pub.dev/packages/drift), of [deze documentatie](https://drift.simonbinder.eu/docs/upgrading/#name) en ook nog [deze getting started](https://drift.simonbinder.eu/docs/getting-started/).
 
-## Getting Started
+Ik had zelf wat moeite met de dependencies omdat er een nieuwe versie van dart is uitgekomen;
+de dependencies die je nu vindt in pubspec.yaml werken in ieder geval op mijn machine. 
 
-This project is a starting point for a Flutter application.
+Een goed en uitgebreid voorbeeld kun je vinden op https://fluttertalk.com/flutter-crud-tutorial-using-drift-package/
 
-A few resources to get you started if this is your first Flutter project:
+## Twee versies
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Er zitten twee todo-listen in dit package: één zonder database en eentje met database. Om één van beide te runnen, maak je in `main.dart` een instantie van de corresponderende klasse aan (het kan handig zijn om beide even met elkaar te vergelijken):
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+De code hieronder maakt een app aan *zonder* database:
+
+```dart
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(title: 'To-Do List', home: TodoList());
+  }
+}
+```
+
+De code hieronder maakt een app aan *met* database:
+
+```dart
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(title: 'To-Do List', home: TodoListPersistent());
+  }
+}
+```
+
+**Let op: ** Hoewel het bestand `database.g.dart` in git zit is dit een gegeneerd bestand; het kan zijn dat je deze even opnieuw moet genereren voordat de boel werkt:
+
+```shell
+dart run build_runner build
+```

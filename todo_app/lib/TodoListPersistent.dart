@@ -1,14 +1,5 @@
 // ignore_for_file: library_private_types_in_public_api
 
-/*
-In dit voorbeeld gebruik ik de database-engine drift: zie https://pub.dev/packages/drift,
-https://drift.simonbinder.eu/docs/upgrading/#name en https://drift.simonbinder.eu/docs/getting-started/.
-Ik had zelf wat moeite met de dependencies omdat er een nieuwe versie van dart is uitgekomen;
-de dependencies die je nu vindt in pubspec.yaml werken in ieder geval op mijn machine. 
-
-Een goed en uitgebreid voorbeeld kun je vinden op https://fluttertalk.com/flutter-crud-tutorial-using-drift-package/
-*/
-
 import 'package:flutter/material.dart';
 import 'database.dart';
 
@@ -23,6 +14,18 @@ class _TodoListPersistentState extends State<TodoListPersistent> {
   //final List<String> _todoList = <String>[];
   final TextEditingController _textFieldController = TextEditingController();
   final database = AppDatabase();
+  List<TodoItem> items = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchData();
+  }
+
+  void _fetchData() async {
+    final databaseItems = await database.getItems();
+    setState(() => items = databaseItems);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +37,18 @@ class _TodoListPersistentState extends State<TodoListPersistent> {
           tooltip: 'Add Item',
           child: const Icon(Icons.add)),
     );
+  }
+
+  Widget _getItems() {
+    return ListView.separated(
+        itemCount: items.length,
+        separatorBuilder: (context, index) => const Divider(),
+        itemBuilder: (context, index) {
+          final item = items[index];
+          return ListTile(
+            title: Text(item.title),
+          );
+        });
   }
 
   void _addTodoItem(String title) {
@@ -80,36 +95,4 @@ class _TodoListPersistentState extends State<TodoListPersistent> {
           );
         });
   }
-
-  Widget _getItems() {
-    return FutureBuilder<List<TodoItem>>(
-      future: database.getItems(),
-      builder: (context, s) {
-        if (s.hasData) {
-          if (s.data!.isNotEmpty) {
-            List<TodoItem>? data = s.data;
-            List<ListTile> foo =
-                data!.map((e) => ListTile(title: Text(e.title))).toList();
-            return Column(
-                children: ListTile.divideTiles(color: Colors.green, tiles: foo)
-                    .toList());
-          } else {
-            return const Center(
-              child: Text("No data available"),
-            );
-          }
-        }
-        return Container();
-      },
-    );
-  }
 }
-
-  // List<Widget> _getItems() {
-  //   final List<Widget> todoWidgets = <Widget>[];
-  //   for (String title in _todoList) {
-  //     todoWidgets.add(_buildTodoItem(title));
-  //   }
-  //   return todoWidgets;
-  //}
-//}
