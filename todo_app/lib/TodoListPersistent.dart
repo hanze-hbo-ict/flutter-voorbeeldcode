@@ -11,7 +11,6 @@ class TodoListPersistent extends StatefulWidget {
 }
 
 class _TodoListPersistentState extends State<TodoListPersistent> {
-  //final List<String> _todoList = <String>[];
   final TextEditingController _textFieldController = TextEditingController();
   final database = AppDatabase();
   List<TodoItem> items = [];
@@ -56,17 +55,11 @@ class _TodoListPersistentState extends State<TodoListPersistent> {
     // the app that the state has changed
     setState(() {
       database.saveItem(title);
-      //_todoList.add(title);
+      _fetchData();
     });
     _textFieldController.clear();
   }
 
-  // Generate list of item widgets
-  // Widget _buildTodoItem(String title) {
-  //   return ListTile(title: Text(title));
-  // }
-
-  // Generate a single item widget
   Future<AlertDialog?> _displayDialog(BuildContext context) async {
     return showDialog<AlertDialog?>(
         context: context,
