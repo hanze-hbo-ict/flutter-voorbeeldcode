@@ -23,3 +23,8 @@ De volgorde waarin de voorbeelden langskomen is als volgt:
 ### Week 2
 5. dismiss_app
 6. service_app
+
+### Week 3
+
+7. service_app
+8. infinite_scroll
