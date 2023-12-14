@@ -10,7 +10,7 @@ Zoals je kunt zien zijn er drie verschillende directories in `lib`:
 - `service`, waarin een classe zit die de calls naar de backend doet (momenteel is dat er maar één: `get`, maar je kunt je natuurlijk voorstellen dat er meerdere call in zitten, of meerdere services);
 - `view`, met de uiteindelijke widget die je te zien krijgt.
 
-Zoals te doen gebruikelijk wordt de hele boel bij elkaar geraapt in `main.dart`.
+Zoals te doen gebruikelijk wordt de hele boel bij elkaar geraapt in `main.dart`. Bekijk overigens ook [de documentatie in de flutter-docs](https://docs.flutter.dev/ui/layout/scrolling#infinite-scrolling) om verschillende andere (*infinite*) *scrolling widgets* te bestuderen.
 
 ## Dependency Injection
 
