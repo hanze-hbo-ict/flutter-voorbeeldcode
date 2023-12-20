@@ -71,10 +71,7 @@ class _InteractiveMarkers extends State<InteractiveMarkers> {
                 ),
                 onTap: () => setState(() {
                       if (!hasBeenTabbed) {
-                        currentAirfield =
-                            AirField.getAirfieldByName(el.abbreviation)!;
-                        // we weten zeker dat die afkoring in de lijst voorkomt,
-                        // dus vandaar dat uitroepteken hierachter
+                        currentAirfield = el;
                         hasBeenTabbed = true;
                       } else {
                         hasBeenTabbed = false;

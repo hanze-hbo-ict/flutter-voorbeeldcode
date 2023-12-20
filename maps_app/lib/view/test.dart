@@ -4,14 +4,14 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 
-class SimpleLocation extends StatefulWidget {
-  const SimpleLocation({super.key});
+class TestApp extends StatefulWidget {
+  const TestApp({super.key});
 
   @override
   State<StatefulWidget> createState() => _LocationManager();
 }
 
-class _LocationManager extends State<SimpleLocation> {
+class _LocationManager extends State<TestApp> {
   Location location = Location();
 
   late bool _serviceEnabled;
@@ -25,6 +25,9 @@ class _LocationManager extends State<SimpleLocation> {
     _getPermissions();
     _locationData = _getLocation();
     location.onLocationChanged.listen((event) {
+      setState(() {
+        _locationData = _getLocation();
+      });
       print(event);
     });
   }
@@ -71,12 +74,86 @@ class _LocationManager extends State<SimpleLocation> {
                   valueColor: AlwaysStoppedAnimation<Color>(Colors.blue)),
             );
           } else {
-            LocationData data = snapshot.data!;
-            double lat = data.latitude!;
-            double long = data.longitude!;
-            double heading = data.heading!;
-            return Text('Location: $lat, $long; heading: $heading');
+            return _getMap(snapshot.data!);
           }
         });
   }
+
+  Widget _getMap(LocationData loc) {
+    double longitude = loc.longitude ?? 53.241440630171795;
+    double latitude = loc.latitude ?? 6.5332570758746265;
+
+    return FlutterMap(
+      options: MapOptions(
+        initialCenter: LatLng(longitude, latitude),
+        initialZoom: 9,
+      ),
+      children: [
+        TileLayer(
+          urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+          userAgentPackageName: 'com.example.app',
+        ),
+      ],
+    );
+  }
 }
+
+
+  
+  
+  
+/*
+  
+  l.Location location = l.Location();
+
+  @override
+  void initState() {
+    super.initState();
+    startTracking();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(title: const Text('U bent hier')),
+            body: Stack(children: [
+              _getMap(),
+            ])));
+  }
+
+  Widget _getMap() {
+    return FlutterMap(
+      options: const MapOptions(
+        initialCenter: LatLng(53.241440630171795, 6.5332570758746265),
+        initialZoom: 9,
+      ),
+      children: [
+        TileLayer(
+          urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+          userAgentPackageName: 'com.example.app',
+        ),
+        MarkerLayer(markers: _getMarker()),
+      ],
+    );
+  }
+
+  List<Marker> _getMarker() {
+    return const [
+      Marker(
+          point: LatLng(53.241440630171795, 6.5332570758746265),
+          child: Icon(
+            Icons.pin_drop_rounded,
+            size: 60,
+            color: Colors.red,
+          ))
+    ];
+  }
+
+  void startTracking() {
+    location.onLocationChanged.listen((event) {
+      print(event);
+    });
+  }
+}
+*/
