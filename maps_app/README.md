@@ -25,3 +25,29 @@ De klasse `InteractiveMarkers` (in `view/interactive_markers.dart`) laat dit zie
 
 Let op dat je de `GestureDetector` als *child-property* van de `Marker` gebruikt, en niet andersom.
 
+## 3. Location
+
+Dependency toegevoegd in `location: ^4.2.0`
+Settings aanpassen voor Android en voor iOS:
+
+Android: `./android/app/src/main/AndroidManifest.xml`: 
+
+```xml
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+```
+
+Als je dit ook op de achtergrond wilt kunnen doen, moet je ook nog de volgende regel toevoegen:
+
+```xml
+<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+```
+
+iOS: `./ios/Runner/Info.plist`
+
+```xml
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>This app needs to access your location</string>
+```
+
+
