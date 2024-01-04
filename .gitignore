@@ -6,6 +6,7 @@
 !.gitignore
 !*.dart
 !*.md
+!push_notifications/imgs/*
 
 # ...even if they are in subdirectories
 !*/
