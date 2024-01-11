@@ -118,3 +118,4 @@ import FirebaseMessaging
 ## Runnen maar
 
 Als het goed is, kun je de boel nu runnen via `flutter run`. Als de app start kun je via je account op FireBase berichten versturen (*Messaging -> New Campaign -> Notifications*). **Let op:** push notifications werken alleen met een echt (fysiek) *device*. Je kunt het niet testen met de simulator.
+
