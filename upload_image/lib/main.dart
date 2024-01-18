@@ -9,7 +9,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: ImageUploadScreen(),
     );
   }
@@ -42,7 +42,7 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
       "code": codeController.text,
       "odometer": odoController.text,
       "result": restultController.text,
-      "photo": "data:image/png;base64, ${base64Encode(imageData)}",
+      "photo": [base64Encode(imageData)],
       "completed": "2024-01-18T08:13:30.916Z"
     });
 
@@ -100,7 +100,7 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
   Widget _getFileInput() {
     return Column(children: <Widget>[
       _imageFile == null
-          ? const Text('No image selected.')
+          ? const Text('Geen plaatje geselecteerd.')
           : Image.file(_imageFile!),
       ElevatedButton(
         onPressed: _pickImage,
@@ -108,7 +108,7 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
       ),
       ElevatedButton(
         onPressed: _uploadData,
-        child: const Text('Upload Image'),
+        child: const Text('Upload de data'),
       )
     ]);
   }
@@ -117,21 +117,18 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
     return Column(children: <Widget>[
       TextFormField(
           controller: codeController,
-          initialValue: "Code hier",
           decoration: const InputDecoration(
             border: UnderlineInputBorder(),
             labelText: 'code',
           )),
       TextFormField(
           controller: odoController,
-          initialValue: "123456",
           decoration: const InputDecoration(
             border: UnderlineInputBorder(),
             labelText: 'odometer',
           )),
       TextFormField(
           controller: restultController,
-          initialValue: "resultaat hier",
           decoration: const InputDecoration(
             border: UnderlineInputBorder(),
             labelText: 'result',
