@@ -24,9 +24,11 @@ class ImageUploadScreen extends StatefulWidget {
 
 class _ImageUploadScreenState extends State<ImageUploadScreen> {
   File? _imageFile;
-  TextEditingController codeController = TextEditingController();
-  TextEditingController odoController = TextEditingController();
-  TextEditingController restultController = TextEditingController();
+  TextEditingController codeController =
+      TextEditingController(text: "Awesome code controller");
+  TextEditingController odoController = TextEditingController(text: "314159");
+  TextEditingController restultController =
+      TextEditingController(text: "Result 👋");
   TextEditingController jwtController = TextEditingController();
 
   Future<void> _uploadData() async {
@@ -38,11 +40,11 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
     final imageData = _imageFile!.readAsBytesSync();
 
     final payload = jsonEncode(<String, Object>{
-      "id": 0,
       "code": codeController.text,
-      "odometer": odoController.text,
+      "odometer": int.parse(odoController.text),
       "result": restultController.text,
-      "photo": [base64Encode(imageData)],
+      "photo": base64Encode(imageData),
+      "photoContentType": "string",
       "completed": "2024-01-18T08:13:30.916Z"
     });
 
@@ -58,9 +60,9 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
         body: payload);
 
     try {
-      if (response.statusCode == 200) {
+      if (response.statusCode == 200 || response.statusCode == 201) {
         // Handle successful upload
-        print('Uploaden geslaagd...');
+        print('Uploaden geslaagd...: ${response.statusCode}');
       } else {
         // Handle failed upload
         print('Uploaden niet geslaagd. Status code: ${response.statusCode}');
@@ -114,31 +116,33 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
   }
 
   Widget _getTextFields() {
-    return Column(children: <Widget>[
-      TextFormField(
-          controller: codeController,
-          decoration: const InputDecoration(
-            border: UnderlineInputBorder(),
-            labelText: 'code',
-          )),
-      TextFormField(
-          controller: odoController,
-          decoration: const InputDecoration(
-            border: UnderlineInputBorder(),
-            labelText: 'odometer',
-          )),
-      TextFormField(
-          controller: restultController,
-          decoration: const InputDecoration(
-            border: UnderlineInputBorder(),
-            labelText: 'result',
-          )),
-      TextFormField(
-          controller: jwtController,
-          decoration: const InputDecoration(
-            border: UnderlineInputBorder(),
-            labelText: 'kopieer hier JWT uit de swagger docs',
-          ))
-    ]);
+    return Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(children: <Widget>[
+          TextFormField(
+              controller: codeController,
+              decoration: const InputDecoration(
+                border: UnderlineInputBorder(),
+                labelText: 'code',
+              )),
+          TextFormField(
+              controller: odoController,
+              decoration: const InputDecoration(
+                border: UnderlineInputBorder(),
+                labelText: 'odometer',
+              )),
+          TextFormField(
+              controller: restultController,
+              decoration: const InputDecoration(
+                border: UnderlineInputBorder(),
+                labelText: 'result',
+              )),
+          TextFormField(
+              controller: jwtController,
+              decoration: const InputDecoration(
+                border: UnderlineInputBorder(),
+                labelText: 'kopieer hier JWT uit de swagger docs',
+              ))
+        ]));
   }
 }

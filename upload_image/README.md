@@ -27,3 +27,7 @@ Om de imagepicker op iOS te kunnen gebruiken, moet je bij de `info.plist` aangev
 ## JWT
 
 Om de request goed te laten verlopen is het noodzakelijk dat er een jwt wordt meegestuurd. Voor deze demo kun je die eenvoudig uit de swagger-documentatie kopiëren.
+
+## Werking
+
+Dit ding doet verder niet zo gek veel. Als de boel is geüpload, komt er alleen een melding op de console.
