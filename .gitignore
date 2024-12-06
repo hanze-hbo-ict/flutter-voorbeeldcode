@@ -7,6 +7,7 @@
 !*.dart
 !*.md
 !push_notifications/imgs/*
+!imgs/*
 
 # ...even if they are in subdirectories
 !*/

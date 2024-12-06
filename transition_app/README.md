@@ -1,16 +1,9 @@
-# transition_app
+# Transition demo
 
-A new Flutter project.
+In deze demo-app maken we gebruik van de [`Navigator`-widget](https://api.flutter.dev/flutter/widgets/Navigator-class.html) om een *stack* van pagina's bij te houden waarbinnen we kunnen navigeren.
 
-## Getting Started
+In [`main.dart`](lib/main.dart) runnen we een instantie van [`NagivationDemo`](lib/page1.dart) die een `StatelessWidget` laat zien. Hierop zie je (onder de kip) een knop die naar [`StartScreen`](lib/page2.dart) gaat. Als je daar op klikt, schuift de tweede pagina in (als het ware over de eerste pagina heen). Hier staat weer een knop om terug te gaan naar de eerste pagina. Op deze manier kun je een hele navigateboom opzetten.
 
-This project is a starting point for a Flutter application.
+Als je de `main` direct naar de tweede pagina laat verwijzen (`runApp(const StartScreen());`), staat deze pagina onderaan de stack, dus als je dan op *Terug* klikt, krijg je een foutmelding.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![De foutmelding die je te zien krijgt als de stack leeg is](../imgs/stack-foutmelding.png)
