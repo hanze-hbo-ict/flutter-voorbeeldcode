@@ -3,7 +3,11 @@
 In dit voorbeeld gebruik ik de database-engine drift: zie [de documentatie online](https://pub.dev/packages/drift), of [deze documentatie](https://drift.simonbinder.eu/docs/upgrading/#name) en ook nog [deze getting started](https://drift.simonbinder.eu/docs/getting-started/).
 
 Ik had zelf wat moeite met de dependencies omdat er een nieuwe versie van dart is uitgekomen;
-de dependencies die je nu vindt in pubspec.yaml werken in ieder geval op mijn machine. 
+de dependencies die je nu vindt in `pubspec.yaml` werken in ieder geval op mijn machine. 
+
+```shell
+dart pub add drift drift_flutter dev:drift_dev dev:build_runner
+```
 
 Een goed en uitgebreid voorbeeld kun je vinden op https://fluttertalk.com/flutter-crud-tutorial-using-drift-package/
 
