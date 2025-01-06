@@ -8,6 +8,7 @@
 !*.md
 !push_notifications/imgs/*
 !imgs/*
+!pubspec.*
 
 # ...even if they are in subdirectories
 !*/

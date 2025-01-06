@@ -5,8 +5,8 @@ Voorbeeld van hoe te werken met [OpenStreetMap](https://www.openstreetmap.org/).
 Installeren van de dependencies doe je via de command line (of je past `pubspec.yaml` met de hand aan):
 
 ```shell
-flutter pub add flutter_map 
-flutter pub add latlong2
+flutter pub add flutter_map latlong2 location provider
+
 ```
 
 Als het goed is, worden nu de dependencies vanzelf binnengehaald. Als dat niet zo is, moet je even `flutter pub get` typen.
