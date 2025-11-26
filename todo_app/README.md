@@ -37,7 +37,7 @@ class App extends StatelessWidget {
 }
 ```
 
-**Let op: ** Hoewel het bestand `database.g.dart` in git zit is dit een gegeneerd bestand; het kan zijn dat je deze even opnieuw moet genereren voordat de boel werkt:
+**Let op:** Hoewel het bestand `database.g.dart` in git zit, is dit een gegenereerd bestand; het kan zijn dat je deze even opnieuw moet genereren voordat de boel werkt:
 
 ```shell
 dart run build_runner build
