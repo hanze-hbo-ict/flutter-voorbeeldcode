@@ -22,9 +22,10 @@ De volgorde waarin de voorbeelden langskomen is als volgt:
 
 ### Week 2
 5. [dismiss_app](dismiss_app/README.md)
+6. [reader_tracker](reader_tracker/README.md)
 6. [service_app](service_app/README.md)
+7. [provider_app](provider_app/README.md)
 
 ### Week 3
 
-7. [service_app](service_app/README.md)
-8. [infinite_scroll](infinite_scroll/README.md)
+9. [infinite_scroll](infinite_scroll/README.md)
