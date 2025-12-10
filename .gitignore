@@ -9,7 +9,7 @@
 !push_notifications/imgs/*
 !imgs/*
 !pubspec.*
-!assets/
+!assets/*
 
 # ...even if they are in subdirectories
 !*/
