@@ -9,7 +9,8 @@
 !push_notifications/imgs/*
 !imgs/*
 !pubspec.*
-!assets/*
+!provider_app/assets/*
+!named_routes_app/assets/*
 
 # ...even if they are in subdirectories
 !*/

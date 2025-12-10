@@ -1,0 +1,26 @@
+[
+  {
+    "naam": "kat",
+    "fr": "Le chat domestique (Felis catus ou Felis silvestris catus) est la forme domestique du chat sauvage Felis silvestris, une espèce de mammifères carnivores, de la famille des Félidés.  Les premières domestications ont probablement lieu au Néolithique, entre 6000 et 8000 av. J.-C., dans le Croissant fertile, époque correspondant au début de la culture de céréales et à l'engrangement de réserves susceptibles d'être attaquées par des rongeurs, le chat devenant alors pour l'Homme un auxiliaire utile se prêtant à la domestication.",
+    "nl": "De kat of huiskat (Felis silvestris catus) is een van de oudste huisdieren van de mens. De gedomesticeerde kat behoort tot de familie van de katachtigen (Felidae) in de orde van de roofdieren (Carnivora). Ook het woord poes is gangbaar, soms meer specifiek in het geval van een vrouwelijke kat. Een mannelijke kat heet een kater, en een jong katje een kitten.",
+    "de": "Die Hauskatze (Felis catus, Synonym: Felis domestica) ist die Haustierform der Falbkatze. Sie zählt zu den beliebtesten Heimtieren. In der Rassekatzenzucht werden oft nur die Tiere als Hauskatze bezeichnet, die keiner anerkannten Rasse angehören. In Deutschland sind Hauskatzen die am häufigsten gehaltenen Haustiere. Aufgrund ihres Jagdverhaltens sind freilaufende Hauskatzen mancherorts eine Bedrohung der Artenvielfalt und zählen zu den problematischsten invasiven Arten der Welt."
+  },
+  {
+    "naam": "hond",
+    "fr": "Le Chien, plus précisément désigné sous le nom de Chien domestique (Canis familiaris ou Canis lupus familiaris), est une espèce de mammifère de la famille des Canidés (Canidae). Il s’agit de la forme domestiquée du loup gris (Canis lupus), laquelle comprend également le dingo, retourné à l'état sauvage.",
+    "nl": "De hond (Canis lupus familiaris) is de gedomesticeerde ondersoort van de wolf. De hond was het eerste dier dat door de mens werd gedomesticeerd (minstens 14.000 jaar geleden), nog vóór de ontwikkeling van landbouw. Door hun langdurige verbondenheid met mensen hebben honden zich op unieke wijze zowel fysiek als gedragsmatig aangepast. Ze zijn bijvoorbeeld in staat geworden om te overleven op een koolhydraatrijk dieet, iets wat ontoereikend is voor andere hondachtigen.",
+    "de": "Der Haushund (Canis lupus familiaris) ist ein Haustier und wird als Heim- und Nutztier gehalten. Seine wilde Stammform ist der Wolf, dem er als Unterart zugeordnet wird. Wann die Domestizierung stattfand, ist umstritten; wissenschaftliche Schätzungen variieren zwischen etwa 15.000 v. Chr. und vor 100.000 Jahren. Hund und Wolf (Canis lupus lupus) sind nicht durch eine Artenschranke getrennt und können daher miteinander fortpflanzungsfähige Nachkommen zeugen."
+  },
+  {
+    "naam": "kip",
+    "fr": "Une volaille est un oiseau domestique, appartenant généralement aux gallinacés ou aux palmipèdes, élevé pour sa chair, ses œufs, ses plumes. L'échelle d'élevage des volailles va de l'intensif industriel spécialisé pouvant regrouper des centaines de milliers d'individu à l'élevage paysan, fermier ou familial des quelques oiseaux rustiques[pas clair]. Il faut noter qu'en cuisine le lapin est considéré comme une volaille.",
+    "nl": "Onder pluimvee verstaat men de door de mens gedomesticeerde vogels die hoofdzakelijk voor productiedoeleinden worden gehouden. Het betreft daarbij producten als vlees, eieren en veren. Siervogels, gezelschapsvogels en volièrevogels worden gewoonlijk niet tot het pluimvee gerekend. Voor de duivensport gehouden duiven vallen er evenmin onder.",
+    "de": "Geflügel ist der Oberbegriff für alle Vogelarten, die als Nutztiere oder Haustiere gezüchtet werden und zum menschlichen Verzehr geeignet sind. Teilweise wird der Begriff synonym für Haus- oder Nutzgeflügel verwendet,[2] manchmal schließt er auch Federwild, Wildvögel, die gezielt zum Verzehr gejagt werden, mit ein. Je nach Nutzung werden Vögel auch in Wirtschaftsgeflügel, Rassegeflügel und Ziergeflügel oder Fettgeflügel, Magergeflügel und Wildgeflügel unterschieden."
+  },
+  {
+    "naam": "paard",
+    "fr": "Le cheval Écouter (Equus ferus caballus ou Equus caballus) est un grand mammifère herbivore et ongulé à sabot unique ; c'est l'une des espèces de la famille des Équidés (Equidae), lesquelles ont évolué, au cours des derniers 45 à 55 millions d'années, à partir d'un petit mammifère possédant plusieurs doigts. À l'état naturel, les chevaux vivent en troupeaux comptant un unique étalon reproducteur. Ils entretiennent des rapports sociaux et comptent sur leur vitesse pour échapper à leurs prédateurs.",
+    "nl": "Het paard (Equus ferus caballus) is een gedomesticeerd hoefdier uit de orde van de onevenhoevigen en de familie van de paardachtigen (Equidae). De wetenschappelijke naam van het gedomesticeerde paard werd als Equus caballus in 1758 gepubliceerd door Carl Linnaeus in de tiende editie van Systema naturae.[1] Het gedomesticeerde paard wordt voornamelijk gehouden als rij- en trekdier.",
+    "de": "Das Hauspferd (Equus caballus) ist ein weit verbreitetes Haus- bzw. Nutztier, das heute in zahlreichen Rassen auf der ganzen Welt existiert. Das Hauspferd ist die domestizierte Form des Wildpferdes, das mit den Eseln und Zebras die Familie der Pferde (Einhufer, Equidae) innerhalb der Ordnung der Unpaarhufer (Perissodactyla) bildet."
+  }
+]
