@@ -28,4 +28,5 @@ De volgorde waarin de voorbeelden langskomen is als volgt:
 
 ### Week 3
 
+8. [named_routes_app](named_routes_app/README.md)
 9. [infinite_scroll](infinite_scroll/README.md)

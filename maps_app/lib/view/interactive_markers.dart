@@ -50,7 +50,7 @@ class _InteractiveMarkers extends State<InteractiveMarkers> {
       children: [
         TileLayer(
           urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-          userAgentPackageName: 'com.example.app',
+          userAgentPackageName: 'nl.hanze.mad',
         ),
         MarkerLayer(markers: _getMarkers()),
       ],

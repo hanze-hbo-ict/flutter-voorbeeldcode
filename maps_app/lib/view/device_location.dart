@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 
-class SimpleLocation extends StatefulWidget {
-  const SimpleLocation({super.key});
+class DeviceLocation extends StatefulWidget {
+  const DeviceLocation({super.key});
 
   @override
   State<StatefulWidget> createState() => _LocationManager();
 }
 
-class _LocationManager extends State<SimpleLocation> {
+class _LocationManager extends State<DeviceLocation> {
   Location location = Location();
 
   late bool _serviceEnabled;
@@ -25,7 +24,9 @@ class _LocationManager extends State<SimpleLocation> {
     _getPermissions();
     _locationData = _getLocation();
     location.onLocationChanged.listen((event) {
-      print(event);
+      setState(() {
+        _locationData = _getLocation();
+      });
     });
   }
 
@@ -54,13 +55,14 @@ class _LocationManager extends State<SimpleLocation> {
 
   @override
   Widget build(BuildContext context) {
+    print('rebuild');
     return MaterialApp(
         home: Scaffold(
-            appBar: AppBar(title: const Text('Luchthavens in het noorden')),
-            body: _locationText()));
+            appBar: AppBar(title: const Text('Centreren op de locatie')),
+            body: _locationText(context)));
   }
 
-  Widget _locationText() {
+  Widget _locationText(BuildContext context) {
     return FutureBuilder<LocationData>(
         future: _locationData,
         builder: (context, snapshot) {

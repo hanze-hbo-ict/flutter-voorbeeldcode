@@ -1,52 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:location/location.dart';
-import 'dart:async';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
-import '../service/location_service.dart';
-import '../model/userlocation.dart';
-
-class InteractiveMap extends StatelessWidget {
-  const InteractiveMap({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Map Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MapScreen(),
-    );
-  }
-}
-
 class MapScreen extends StatefulWidget {
+  const MapScreen({super.key});
+
   @override
-  _MapScreenState createState() => _MapScreenState();
+  State<MapScreen> createState() => _MapScreenState();
 }
 
 class _MapScreenState extends State<MapScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _locationController = TextEditingController();
   final MapController _mapController = MapController();
-  LatLng _currentLocation = LatLng(0.0, 0.0);
+  LatLng _currentLocation = const LatLng(0.0, 0.0);
 
   void _scrollToLocation() {
     if (_formKey.currentState!.validate()) {
-      String location = _locationController.text;
-      // Perform geocoding to get coordinates from the entered location (not included in this example)
-
-      // For demo purposes, directly setting coordinates of Cupertino, CA
-      double lat = 37.3230;
-      double lng = -122.0322;
+      List<String> location = _locationController.text.split(',');
+      double lat = double.parse(location[0]);
+      double lng = double.parse(location[1]);
 
       LatLng newLocation = LatLng(lat, lng);
+      print(newLocation);
 
       _mapController.move(
-          newLocation, 15.0); // Move the map to the new location
+          newLocation, 10.0); // Move the map to the new location
       setState(() {
         _currentLocation = newLocation;
       });
@@ -57,7 +36,7 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Map'),
+        title: const Text('Flutter map demo'),
       ),
       body: Column(
         children: <Widget>[
@@ -71,7 +50,7 @@ class _MapScreenState extends State<MapScreen> {
               children: [
                 TileLayer(
                   urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                  userAgentPackageName: 'com.example.app',
+                  userAgentPackageName: 'nl.hanze.mad',
                 ),
                 MarkerLayer(markers: [
                   Marker(
@@ -89,7 +68,7 @@ class _MapScreenState extends State<MapScreen> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Form(
               key: _formKey,
               child: Row(
@@ -97,22 +76,22 @@ class _MapScreenState extends State<MapScreen> {
                   Expanded(
                     child: TextFormField(
                       controller: _locationController,
-                      decoration: InputDecoration(
-                        labelText: 'Enter Location',
+                      decoration: const InputDecoration(
+                        labelText: 'Locatie gescheiden door komma',
                         border: OutlineInputBorder(),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter a location';
+                          return 'Locatie invoeren 😡';
                         }
                         return null;
                       },
                     ),
                   ),
-                  SizedBox(width: 10.0),
+                  const SizedBox(width: 10.0),
                   ElevatedButton(
                     onPressed: _scrollToLocation,
-                    child: Text('Scroll To Location'),
+                    child: const Text('Scroll naar locatie'),
                   ),
                 ],
               ),
