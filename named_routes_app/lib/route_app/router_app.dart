@@ -1,7 +1,8 @@
+import 'package:demo_app/route_app/plaatje_card_named.dart';
 import 'package:demo_app/provider.dart';
 import 'package:demo_app/route_app/beschrijving.dart';
 import 'package:demo_app/route_app/plaatje.dart';
-import 'package:demo_app/route_app/plaatje_card.dart';
+import 'package:demo_app/normal_app/plaatje_card_normal.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -22,12 +23,7 @@ class RouterAnimalApp extends StatelessWidget {
           '/home': (context) => const RouterAnimalApp(),
           '/omschrijving': (context) => const Beschrijving(),
           '/plaatje': (context) => const AnimalPicture(),
-        }
-        // routes: {
-        //   '/': (context) => const RoutingHome(),
-        //   '/omschrijving': (context) => Beschrijving()
-        // };
-        );
+        });
   }
 }
 
@@ -58,7 +54,7 @@ class _RoutingHomeState extends State<RoutingHome> {
         itemCount: animalData.length,
         itemBuilder: (context, idx) {
           final animal = animalData[idx];
-          return AnimalCard(animal: animal);
+          return AnimalCardNamedRoute(animal: animal);
         },
       )),
     );

@@ -1,21 +1,19 @@
-import 'package:demo_app/normal_app/beschrijving.dart';
 import 'package:demo_app/models/animal_model.dart';
-import 'package:demo_app/normal_app/plaatje.dart';
 import 'package:demo_app/route_app/util.dart';
 import 'package:flutter/material.dart';
 
-class AnimalCard extends StatelessWidget {
+class AnimalCardNamedRoute extends StatelessWidget {
   final AnimalModel animal;
-  const AnimalCard({super.key, required this.animal});
+  const AnimalCardNamedRoute({super.key, required this.animal});
 
   @override
   Widget build(BuildContext context) {
-    return StandardNavigationWidget(animal: animal);
+    return RouteNavigationWidget(animal: animal);
   }
 }
 
-class StandardNavigationWidget extends StatelessWidget {
-  const StandardNavigationWidget({
+class RouteNavigationWidget extends StatelessWidget {
+  const RouteNavigationWidget({
     super.key,
     required this.animal,
   });
@@ -37,12 +35,14 @@ class StandardNavigationWidget extends StatelessWidget {
               GestureDetector(
                 child: const Icon(Icons.description),
                 onTap: () => Navigator.pushNamed(context, '/omschrijving',
-                    arguments: AnimalDetailsArgument(animal: animal)),
+                    arguments:
+                        AnimalDetailsArgument('omschrijving', animal: animal)),
               ),
               GestureDetector(
                 child: const Icon(Icons.summarize),
                 onTap: () => Navigator.pushNamed(context, '/plaatje',
-                    arguments: AnimalDetailsArgument(animal: animal)),
+                    arguments:
+                        AnimalDetailsArgument('plaatje', animal: animal)),
               ),
             ],
           )

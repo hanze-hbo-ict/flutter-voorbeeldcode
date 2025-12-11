@@ -3,9 +3,9 @@ import 'package:demo_app/models/animal_model.dart';
 import 'package:demo_app/normal_app/plaatje.dart';
 import 'package:flutter/material.dart';
 
-class AnimalCard extends StatelessWidget {
+class AnimalCardNormal extends StatelessWidget {
   final AnimalModel animal;
-  const AnimalCard({super.key, required this.animal});
+  const AnimalCardNormal({super.key, required this.animal});
 
   @override
   Widget build(BuildContext context) {

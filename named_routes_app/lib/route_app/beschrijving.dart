@@ -17,6 +17,7 @@ class _BeschrijvingState extends State<Beschrijving> {
     final args =
         ModalRoute.of(context)?.settings.arguments as AnimalDetailsArgument;
     AnimalModel animal = args.animal;
+    String boodschap = args.boodschap;
 
     _curDesc = switch (_idx) {
       0 => animal.frans,
@@ -46,7 +47,7 @@ class _BeschrijvingState extends State<Beschrijving> {
           },
         ),
         appBar: AppBar(
-          title: Text(animal.naam),
+          title: Text('$boodschap ${animal.naam}'),
         ),
         body: Container(
           decoration: BoxDecoration(

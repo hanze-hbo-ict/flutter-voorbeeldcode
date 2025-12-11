@@ -10,10 +10,11 @@ class AnimalPicture extends StatelessWidget {
     final args =
         ModalRoute.of(context)?.settings.arguments as AnimalDetailsArgument;
     AnimalModel animal = args.animal;
+    String boodschap = args.boodschap;
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(animal.naam),
+          title: Text('$boodschap ${animal.naam}'),
         ),
         body: Center(child: Image.asset('assets/${animal.naam}.jpeg')));
   }

@@ -2,6 +2,7 @@ import 'package:demo_app/models/animal_model.dart';
 
 class AnimalDetailsArgument {
   final AnimalModel animal;
+  final String boodschap;
 
-  AnimalDetailsArgument({required this.animal});
+  AnimalDetailsArgument(this.boodschap, {required this.animal});
 }

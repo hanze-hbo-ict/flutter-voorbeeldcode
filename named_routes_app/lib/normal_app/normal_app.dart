@@ -1,4 +1,5 @@
-import 'package:demo_app/normal_app/plaatje_card.dart';
+import 'package:demo_app/normal_app/plaatje_card_normal.dart';
+import 'package:demo_app/route_app/plaatje_card_named.dart';
 import 'package:demo_app/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -45,7 +46,7 @@ class _NormalHomeState extends State<NormalHome> {
         itemCount: animalData.length,
         itemBuilder: (context, idx) {
           final animal = animalData[idx];
-          return AnimalCard(animal: animal);
+          return AnimalCardNormal(animal: animal);
         },
       )),
     );
