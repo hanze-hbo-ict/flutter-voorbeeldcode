@@ -4,7 +4,7 @@ import 'package:location/location.dart';
 import 'dart:async';
 
 import '../service/location_service.dart';
-import '../model/userlocation.dart';
+import '../models/userlocation.dart';
 
 class ComplexMap extends StatelessWidget {
   const ComplexMap({super.key});

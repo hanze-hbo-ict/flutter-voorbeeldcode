@@ -1,4 +1,4 @@
-import '../model/userlocation.dart';
+import '../models/userlocation.dart';
 import 'package:location/location.dart';
 import 'dart:async';
 

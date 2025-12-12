@@ -12,10 +12,11 @@ class DeviceLocation extends StatefulWidget {
 
 class _LocationManager extends State<DeviceLocation> {
   Location location = Location();
+  final MapController _controller = MapController();
+  bool _mapCreated = false;
 
   late bool _serviceEnabled;
   late PermissionStatus _permissionGranted;
-
   late Future<LocationData> _locationData;
 
   @override
@@ -55,7 +56,6 @@ class _LocationManager extends State<DeviceLocation> {
 
   @override
   Widget build(BuildContext context) {
-    print('rebuild');
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(title: const Text('Centreren op de locatie')),
@@ -73,12 +73,45 @@ class _LocationManager extends State<DeviceLocation> {
                   valueColor: AlwaysStoppedAnimation<Color>(Colors.blue)),
             );
           } else {
-            LocationData data = snapshot.data!;
-            double lat = data.latitude!;
-            double long = data.longitude!;
-            double heading = data.heading!;
-            return Text('Location: $lat, $long; heading: $heading');
+            if (_mapCreated) {
+              LocationData data = snapshot.data!;
+              double lat = data.latitude!;
+              double lng = data.longitude!;
+              double heading = data.heading!;
+              _controller.moveAndRotate(LatLng(lat, lng), 16, -heading);
+            }
+            return updateableMap(context);
           }
         });
+  }
+
+  Widget updateableMap(BuildContext context) {
+    LatLng foo = _mapCreated ? _controller.camera.center : const LatLng(53, 6);
+
+    _mapCreated = true;
+
+    return Stack(children: [
+      FlutterMap(
+        mapController: _controller,
+        options: const MapOptions(
+          initialCenter: LatLng(53.241440630171795, 6.5332570758746265),
+          initialZoom: 16,
+        ),
+        children: [
+          TileLayer(
+            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            userAgentPackageName: 'nl.hanze.mad',
+          ),
+          MarkerLayer(markers: [
+            Marker(
+                point: foo,
+                child: const Icon(
+                  Icons.agriculture_rounded,
+                  size: 60,
+                ))
+          ])
+        ],
+      )
+    ]);
   }
 }

@@ -22,7 +22,6 @@ class _MapScreenState extends State<MapScreen> {
       double lng = double.parse(location[1]);
 
       LatLng newLocation = LatLng(lat, lng);
-      print(newLocation);
 
       _mapController.move(
           newLocation, 10.0); // Move the map to the new location

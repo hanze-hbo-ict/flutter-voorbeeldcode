@@ -1,16 +1,13 @@
+import 'package:demo_app/views/device_location.dart';
 import 'package:flutter/material.dart';
-import 'package:maps_app/view/interactive_markers.dart';
-import 'package:maps_app/view/device_location.dart';
-import 'package:maps_app/view/map_screen.dart';
-import 'package:maps_app/view/simple_markers.dart';
 import 'package:provider/provider.dart';
 import 'package:location/location.dart';
 import 'dart:async';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
-import '../service/location_service.dart';
-import '../model/userlocation.dart';
+import 'service/location_service.dart';
+import 'models/userlocation.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
