@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'view/todo_card.dart';
+import 'view/todo_list.dart';
 import 'service/todo_service.dart';
 
 void main() {

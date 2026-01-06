@@ -1,10 +1,10 @@
 class Todo {
-  final int userId;
-  final int id;
-  final String title;
-  final bool completed;
+  int userId;
+  int id;
+  String title;
+  bool completed;
 
-  const Todo({
+  Todo({
     required this.userId,
     required this.id,
     required this.title,

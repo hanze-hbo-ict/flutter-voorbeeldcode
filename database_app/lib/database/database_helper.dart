@@ -1,4 +1,5 @@
 import 'package:database_app/models/todo_model.dart';
+import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -37,9 +38,21 @@ class DatabaseHelper {
     try {
       return await db.insert(_tableName, todo.toJson());
     } on DatabaseException {
-      fetchTodo(todo.id);
-      throw Exception('todo met id ${todo.id} was al opgeslagen');
+      //fetchTodo(todo.id);
+      //throw Exception('todo met id ${todo.id} was al opgeslagen');
+      return todo.id;
     }
+  }
+
+  void updateTodo(
+      {required int id,
+      required int userid,
+      required String title,
+      required bool completed}) async {
+    Database db = await instance.database;
+    db.update(
+        _tableName, {'userid': userid, 'title': title, 'completed': completed},
+        where: 'id=?', whereArgs: [id]);
   }
 
   Future<List<Todo>> readAllTodos() async {
@@ -50,13 +63,25 @@ class DatabaseHelper {
         : [];
   }
 
-  fetchTodo(int id) async {
+  Future<Todo> fetchTodo(int id) async {
+    print('checking todo met id $id');
     Database db = await instance.database;
     List<Map> result = await db.query(_tableName,
         columns: ['userId', 'id', 'title', 'completed'],
         where: 'id=?',
         whereArgs: [id]);
-    result.forEach((row) => print(row));
+
+    if (result.isNotEmpty) {
+      print('check');
+      Map res = result[0];
+      return Todo(
+          completed: res['completed'] == 0 ? false : true,
+          id: res['id'],
+          title: res['title'],
+          userId: res['userID']);
+    }
+    throw Exception();
+    // result.forEach((row) => print(row));
     // return result;
   }
 }
