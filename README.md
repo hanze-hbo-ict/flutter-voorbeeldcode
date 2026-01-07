@@ -30,3 +30,18 @@ De volgorde waarin de voorbeelden langskomen is als volgt:
 
 8. [named_routes_app](named_routes_app/README.md)
 9. [infinite_scroll](infinite_scroll/README.md)
+
+### Week 4
+
+10. [maps_app](maps_app/README.md)
+11. [database_app](database_app/README.md)
+
+### Week 5
+12. [login_app](login_app/README.md)
+13. [upload_image](upload_image/README.md)
+14. [animation](animation/README.md)
+
+### Week 6
+15. [drawer_app](drawer_app/README.md)
+16. [firebase_app](firebase_app/READEM.md)
+
